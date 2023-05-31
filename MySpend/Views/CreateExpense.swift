@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct CreateExpense: View {
+    @EnvironmentObject var modelData: ModelData
     @State private var amount = ""
     @State private var description = ""
     private let categories = ["Housing", "Food", "Transportation"]
@@ -33,7 +34,10 @@ struct CreateExpense: View {
                         .frame(height: 200)
                 }
                 
-                Button("Submit") {}
+                Button("Submit", action: {
+                    modelData.expenses.append(Expense(dateTime: Date(), amount: Double(amount) ?? 0.0, category: category, description: description))
+                    print(modelData.expenses)
+                })
                 
                 
                     
@@ -47,6 +51,6 @@ struct CreateExpense: View {
 
 struct CreateExpense_Previews: PreviewProvider {
     static var previews: some View {
-        CreateExpense()
+        CreateExpense().environmentObject(ModelData())
     }
 }

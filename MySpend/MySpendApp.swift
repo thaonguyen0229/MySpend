@@ -9,9 +9,10 @@ import SwiftUI
 
 @main
 struct MySpendApp: App {
+    @StateObject var modelData = ModelData()
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            ContentView().environmentObject(modelData)
         }
     }
 }

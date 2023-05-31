@@ -16,6 +16,7 @@
 		558B9BA22A27A10300C7F7B9 /* CalendarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 558B9B9B2A27A10300C7F7B9 /* CalendarView.swift */; };
 		558B9BA32A27A10300C7F7B9 /* Expense.swift in Sources */ = {isa = PBXBuildFile; fileRef = 558B9B9D2A27A10300C7F7B9 /* Expense.swift */; };
 		558B9BA42A27A10300C7F7B9 /* generateCalendar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 558B9B9F2A27A10300C7F7B9 /* generateCalendar.swift */; };
+		558B9BA82A27A91300C7F7B9 /* ModelData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 558B9BA72A27A91300C7F7B9 /* ModelData.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -29,6 +30,7 @@
 		558B9B9B2A27A10300C7F7B9 /* CalendarView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarView.swift; sourceTree = "<group>"; };
 		558B9B9D2A27A10300C7F7B9 /* Expense.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Expense.swift; sourceTree = "<group>"; };
 		558B9B9F2A27A10300C7F7B9 /* generateCalendar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = generateCalendar.swift; sourceTree = "<group>"; };
+		558B9BA72A27A91300C7F7B9 /* ModelData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModelData.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -93,6 +95,7 @@
 		558B9B9C2A27A10300C7F7B9 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				558B9BA72A27A91300C7F7B9 /* ModelData.swift */,
 				558B9B9D2A27A10300C7F7B9 /* Expense.swift */,
 			);
 			path = Model;
@@ -181,6 +184,7 @@
 				558B9B8D2A27A02200C7F7B9 /* ContentView.swift in Sources */,
 				558B9B8B2A27A02200C7F7B9 /* MySpendApp.swift in Sources */,
 				558B9BA42A27A10300C7F7B9 /* generateCalendar.swift in Sources */,
+				558B9BA82A27A91300C7F7B9 /* ModelData.swift in Sources */,
 				558B9BA02A27A10300C7F7B9 /* CreateExpense.swift in Sources */,
 				558B9BA12A27A10300C7F7B9 /* CalendarCell.swift in Sources */,
 			);
