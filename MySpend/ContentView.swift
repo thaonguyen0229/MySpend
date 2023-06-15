@@ -8,8 +8,23 @@
 import SwiftUI
 
 struct ContentView: View {
+    @State var monthInt = 6
+    @State var monthStr = "06"
+    @State var yearInt = 2023
     var body: some View {
-        CreateExpense()
+        VStack {
+            CalendarView(month: monthStr, year: "2023")
+            Text(monthStr)
+            Button("Plus") {
+                monthInt = monthInt + 1
+                monthStr = "0" + monthInt.description
+            }
+            Button("Minus") {
+                monthInt = monthInt - 1
+                monthStr = "0" + monthInt.description
+            }
+        }
+        
     }
 }
 

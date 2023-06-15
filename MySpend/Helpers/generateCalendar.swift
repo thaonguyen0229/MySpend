@@ -7,21 +7,23 @@
 
 import Foundation
 
-func generateCalendar() -> [[String]] {
+func generateCalendar(month: String, year: String) -> [[String]] {
+    let letters = ["a","b","c","d","e","f"]
     var result: [[String]] = [[]]
-    let today = Date()
     let calendar = Calendar.current
-    let numOfDays = calendar.range(of: .day, in: .month, for: today)!.count
+    let dateFormatter = DateFormatter()
+    dateFormatter.dateFormat = "yyyy-MM"
+    let date = dateFormatter.date(from: year + "-" + month) ?? Date()
+    let numOfDays = calendar.range(of: .day, in: .month, for: date)!.count
    
-    var firstWeekday = calendar.component(.weekday, from: today) -  (calendar.component(.day, from: today) % 7)
+    var firstWeekday = calendar.component(.weekday, from: date) -  (calendar.component(.day, from: date) % 7)
     
     if (firstWeekday < 0) {
         firstWeekday = firstWeekday + 7
     }
-    print(firstWeekday)
     
-    for _ in 1...firstWeekday {
-        result[0].append("")
+    for i in 0..<firstWeekday {
+        result[0].append(letters[i])
     }
     
     for day in 1...numOfDays {
@@ -38,3 +40,4 @@ func generateCalendar() -> [[String]] {
     
     return result
 }
+

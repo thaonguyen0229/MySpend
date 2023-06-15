@@ -13,6 +13,7 @@ struct CreateExpense: View {
     @State private var description = ""
     private let categories = ["Housing", "Food", "Transportation"]
     @State private var category = "Housing"
+    var date: String
     
     var body: some View {
         NavigationView {
@@ -35,7 +36,11 @@ struct CreateExpense: View {
                 }
                 
                 Button("Submit", action: {
-                    modelData.expenses.append(Expense(dateTime: Date(), amount: Double(amount) ?? 0.0, category: category, description: description))
+                    let dateFormatter = DateFormatter()
+                    dateFormatter.dateFormat = "yyyy-MM-dd"
+                    let newExpense = Expense(dateTime: dateFormatter.date(from: date) ?? Date(), amount: Double(amount) ?? 0.0, category: category, description: description)
+                    
+                    modelData.expenses.append(newExpense)
                     print(modelData.expenses)
                 })
                 
@@ -44,6 +49,7 @@ struct CreateExpense: View {
                     
             }
             .navigationTitle(Text("New Expense"))
+            .onAppear(perform: {print(date)})
         }
         
     }
@@ -51,6 +57,6 @@ struct CreateExpense: View {
 
 struct CreateExpense_Previews: PreviewProvider {
     static var previews: some View {
-        CreateExpense().environmentObject(ModelData())
+        CreateExpense(date: "2023-05-12").environmentObject(ModelData())
     }
 }
