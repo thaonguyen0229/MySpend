@@ -8,8 +8,8 @@
 import SwiftUI
 
 struct CalendarView: View {
-    let month: String
-    let year: String
+    @State var month: String
+    @State var year: String
     private let monthName = [
         "01": "January",
         "02": "Febuary",
@@ -29,7 +29,24 @@ struct CalendarView: View {
     
     var body: some View {
         NavigationStack {
-            Text((monthName[month] ?? "Unknown") + " " + year)
+            HStack {
+                Button {
+                    (month,year) = calculateMonth(month, year, -1)
+                } label: {
+                    Image(systemName: "lessthan")
+                }
+                .padding(30)
+                Spacer()
+                Text((monthName[month] ?? "Unknown") + " " + year)
+                Spacer()
+                Button {
+                    (month,year) = calculateMonth(month, year, 1)
+                } label: {
+                    Image(systemName: "greaterthan")
+                }
+                .padding(30)
+            }
+            
             HStack {
                 Spacer()
                 ForEach(days, id: \.self) {
