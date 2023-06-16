@@ -10,7 +10,7 @@ import Foundation
 func generateCalendar(month: String, year: String) -> [[String]] {
     let letters = ["a","b","c","d","e","f"]
     var result: [[String]] = [[]]
-    let calendar = Calendar.current
+    let calendar = Calendar(identifier: .gregorian)
     let dateFormatter = DateFormatter()
     dateFormatter.dateFormat = "yyyy-MM"
     let date = dateFormatter.date(from: year + "-" + month) ?? Date()

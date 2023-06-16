@@ -14,8 +14,11 @@ struct CreateExpense: View {
     private let categories = ["Housing", "Food", "Transportation"]
     @State private var category = "Housing"
     var date: String
+    @State private var dateVal = Date()
+    let dateFormatter = DateFormatter()
     
     var body: some View {
+        
         NavigationView {
             Form {
                 
@@ -27,7 +30,11 @@ struct CreateExpense: View {
                             Text($0)
                         }
                     }
-                    
+                    DatePicker(
+                            "Date",
+                            selection: $dateVal,
+                            displayedComponents: [.date]
+                        )
                 }
                 
                 Section("Description") {
@@ -36,9 +43,7 @@ struct CreateExpense: View {
                 }
                 
                 Button("Submit", action: {
-                    let dateFormatter = DateFormatter()
-                    dateFormatter.dateFormat = "yyyy-MM-dd"
-                    let newExpense = Expense(dateTime: dateFormatter.date(from: date) ?? Date(), amount: Double(amount) ?? 0.0, category: category, description: description)
+                    let newExpense = Expense(dateTime: dateVal, amount: Double(amount) ?? 0.0, category: category, description: description)
                     
                     modelData.expenses.append(newExpense)
                     print(modelData.expenses)
@@ -49,7 +54,13 @@ struct CreateExpense: View {
                     
             }
             .navigationTitle(Text("New Expense"))
-            .onAppear(perform: {print(date)})
+            .onAppear(perform: {
+                print(date)
+                dateFormatter.dateFormat = "yyyy-MM-dd"
+                dateVal = dateFormatter.date(from: date) ?? Date()
+                print(dateVal)
+            })
+
         }
         
     }
