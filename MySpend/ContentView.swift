@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct ContentView: View {
+    
     var body: some View {
         let calendar = Calendar(identifier: .gregorian)
         let month = String(format: "%02d",calendar.component(.month, from: Date()))
@@ -17,7 +18,7 @@ struct ContentView: View {
                 .tabItem {
                     Label("Calendar", systemImage: "calendar")
                 }
-            CreateExpense(date: "2023-05-12")
+            CreateExpense(date: "")
                 .tabItem {
                     Label("Track", systemImage: "plus.app.fill")
                 }

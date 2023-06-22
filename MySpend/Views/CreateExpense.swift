@@ -13,9 +13,12 @@ struct CreateExpense: View {
     @State private var description = ""
     private let categories = ["Housing", "Food", "Transportation"]
     @State private var category = "Housing"
+    
     var date: String
     @State private var dateVal = Date()
     let dateFormatter = DateFormatter()
+    
+    @State private var showPopover = false
     
     var body: some View {
         
@@ -47,6 +50,7 @@ struct CreateExpense: View {
                     
                     modelData.expenses.append(newExpense)
                     print(modelData.expenses)
+                    self.showPopover = true
                 })
                 
                 
@@ -62,6 +66,15 @@ struct CreateExpense: View {
             })
 
         }
+        .popover(isPresented: $showPopover, content: {
+            Text("Expense entered successfully!")
+            Button("Dismiss") {
+                self.amount = ""
+                self.description = ""
+                self.showPopover = false
+            }
+            
+        })
         
     }
 }
