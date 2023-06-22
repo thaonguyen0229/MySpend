@@ -7,7 +7,8 @@
 
 import Foundation
 
-struct Expense {
+struct Expense: Identifiable {
+    let id = UUID()
     var dateTime: Date
     var amount: Double
     var description: String

@@ -66,14 +66,12 @@ struct CreateExpense: View {
             })
 
         }
-        .popover(isPresented: $showPopover, content: {
-            Text("Expense entered successfully!")
+        .alert("Expense entered successfully!", isPresented:$showPopover, actions: {
             Button("Dismiss") {
                 self.amount = ""
                 self.description = ""
                 self.showPopover = false
             }
-            
         })
         
     }

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		55225CB92A44BDFA0030E8E9 /* RowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55225CB82A44BDFA0030E8E9 /* RowView.swift */; };
 		55282E8C2A3C05E400540FB4 /* calculateMonth.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55282E8B2A3C05E400540FB4 /* calculateMonth.swift */; };
 		558B9B8B2A27A02200C7F7B9 /* MySpendApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 558B9B8A2A27A02200C7F7B9 /* MySpendApp.swift */; };
 		558B9B8D2A27A02200C7F7B9 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 558B9B8C2A27A02200C7F7B9 /* ContentView.swift */; };
@@ -17,9 +18,11 @@
 		558B9BA32A27A10300C7F7B9 /* Expense.swift in Sources */ = {isa = PBXBuildFile; fileRef = 558B9B9D2A27A10300C7F7B9 /* Expense.swift */; };
 		558B9BA42A27A10300C7F7B9 /* generateCalendar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 558B9B9F2A27A10300C7F7B9 /* generateCalendar.swift */; };
 		558B9BA82A27A91300C7F7B9 /* ModelData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 558B9BA72A27A91300C7F7B9 /* ModelData.swift */; };
+		55B65ED02A449A11008B72C6 /* ListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55B65ECF2A449A11008B72C6 /* ListView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		55225CB82A44BDFA0030E8E9 /* RowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RowView.swift; sourceTree = "<group>"; };
 		55282E8B2A3C05E400540FB4 /* calculateMonth.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = calculateMonth.swift; sourceTree = "<group>"; };
 		558B9B872A27A02200C7F7B9 /* MySpend.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MySpend.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		558B9B8A2A27A02200C7F7B9 /* MySpendApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MySpendApp.swift; sourceTree = "<group>"; };
@@ -31,6 +34,7 @@
 		558B9B9D2A27A10300C7F7B9 /* Expense.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Expense.swift; sourceTree = "<group>"; };
 		558B9B9F2A27A10300C7F7B9 /* generateCalendar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = generateCalendar.swift; sourceTree = "<group>"; };
 		558B9BA72A27A91300C7F7B9 /* ModelData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModelData.swift; sourceTree = "<group>"; };
+		55B65ECF2A449A11008B72C6 /* ListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -87,6 +91,8 @@
 			children = (
 				558B9B992A27A10300C7F7B9 /* CreateExpense.swift */,
 				558B9B9B2A27A10300C7F7B9 /* CalendarView.swift */,
+				55B65ECF2A449A11008B72C6 /* ListView.swift */,
+				55225CB82A44BDFA0030E8E9 /* RowView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -180,6 +186,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				558B9BA32A27A10300C7F7B9 /* Expense.swift in Sources */,
+				55225CB92A44BDFA0030E8E9 /* RowView.swift in Sources */,
 				558B9BA22A27A10300C7F7B9 /* CalendarView.swift in Sources */,
 				558B9B8D2A27A02200C7F7B9 /* ContentView.swift in Sources */,
 				55282E8C2A3C05E400540FB4 /* calculateMonth.swift in Sources */,
@@ -187,6 +194,7 @@
 				558B9BA42A27A10300C7F7B9 /* generateCalendar.swift in Sources */,
 				558B9BA82A27A91300C7F7B9 /* ModelData.swift in Sources */,
 				558B9BA02A27A10300C7F7B9 /* CreateExpense.swift in Sources */,
+				55B65ED02A449A11008B72C6 /* ListView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
