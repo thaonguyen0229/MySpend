@@ -6,12 +6,13 @@
 //
 
 import SwiftUI
+import CoreData
 
 struct RowView: View {
     let expense: Expense
     var body: some View {
         HStack {
-            Text(expense.category)
+            Text(expense.category ?? "")
                 .padding(10)
             Spacer()
             Text(expense.amount.description)
@@ -23,6 +24,8 @@ struct RowView: View {
 
 struct RowView_Previews: PreviewProvider {
     static var previews: some View {
-        RowView(expense: Expense(dateTime: Date(), amount: 12.0, category: "Housing", description: "aaa"))
+        let expense = Expense(context: PersistenceController.shared.container.viewContext)
+//        RowView(expense: Expense(dateTime: Date(), amount: 12.0, category: "Housing", description: "aaa"))
+        RowView(expense: expense)
     }
 }

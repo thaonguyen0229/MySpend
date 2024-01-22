@@ -7,8 +7,7 @@
 
 import SwiftUI
 
-struct CreateExpense: View {
-    @EnvironmentObject var modelData: ModelData
+struct CreateExpense: View {    @Environment(\.managedObjectContext) var managedObjectContext
     @State private var amount = ""
     @State private var description = ""
     private let categories = ["Housing", "Food", "Transportation"]
@@ -46,10 +45,18 @@ struct CreateExpense: View {
                 }
                 
                 Button("Submit", action: {
-                    let newExpense = Expense(dateTime: dateVal, amount: Double(amount) ?? 0.0, category: category, description: description)
-                    
-                    modelData.expenses.append(newExpense)
-                    print(modelData.expenses)
+//                    let newExpense = Expense(dateTime: dateVal, amount: Double(amount) ?? 0.0, category: category, description: description)
+//                    
+//                    modelData.expenses.append(newExpense)
+//                    print(modelData.expenses)
+                    let newExpense = Expense(context: managedObjectContext)
+                    newExpense.id = UUID()
+                    newExpense.amount = Double(amount) ?? 0.0
+                    newExpense.category = category
+                    newExpense.dateTime = dateVal
+                    newExpense.note = description
+    
+                    PersistenceController.shared.save()
                     self.showPopover = true
                 })
                 
@@ -79,6 +86,6 @@ struct CreateExpense: View {
 
 struct CreateExpense_Previews: PreviewProvider {
     static var previews: some View {
-        CreateExpense(date: "2023-05-12").environmentObject(ModelData())
+        CreateExpense(date: "2023-05-12").environment(\.managedObjectContext, PersistenceController.shared.container.viewContext)
     }
 }

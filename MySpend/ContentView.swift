@@ -8,7 +8,6 @@
 import SwiftUI
 
 struct ContentView: View {
-    @EnvironmentObject var modelData: ModelData
     
     var body: some View {
         let calendar = Calendar(identifier: .gregorian)
@@ -23,7 +22,7 @@ struct ContentView: View {
                 .tabItem {
                     Label("Track", systemImage: "plus.app.fill")
                 }
-            ListView(expenses: modelData.expenses)
+            ListView()
                 .tabItem {
                     Label("List", systemImage: "list.star")
                 }
@@ -33,7 +32,8 @@ struct ContentView: View {
 }
 
 struct ContentView_Previews: PreviewProvider {
+    @Environment(\.scenePhase) var scenePhase
     static var previews: some View {
-        ContentView().environmentObject(ModelData())
+        ContentView().environment(\.managedObjectContext, PersistenceController.shared.container.viewContext)
     }
 }

@@ -9,10 +9,15 @@ import SwiftUI
 
 @main
 struct MySpendApp: App {
-    @StateObject var modelData = ModelData()
+    @Environment(\.scenePhase) var scenePhase
+    let persistenceController = PersistenceController.shared
     var body: some Scene {
         WindowGroup {
-            ContentView().environmentObject(modelData)
+            ContentView()
+                .environment(\.managedObjectContext, persistenceController.container.viewContext)
+        }
+        .onChange(of: scenePhase) { _ in
+            persistenceController.save()
         }
     }
 }
